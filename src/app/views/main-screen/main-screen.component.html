@@ -1,0 +1,28 @@
+<Header></Header>
+<main>
+    <div id="container-functions">
+        <!-- Button add note -->
+        <button id="element-add-note">Add nota</button>
+        
+        <!-- Field search -->
+        <label for="element-search" id="container-search">
+            <input type="search" name="cont-search" id="element-search" placeholder="Pesquisar">
+        </label>
+    </div>
+    <section id="container-notes">
+        <div class="case-note">
+            <span class="title-note"> {{ title }} </span>
+            <div class="container-description ">
+                <span class="description-note">
+                    {{ description }}...
+                </span>
+            </div>
+            <div class="container-button">
+                <img [src]="'../../../assets/svg/eye-open.svg'" alt="" class="eyes-icon">
+            </div>
+        </div>
+    </section>
+
+
+
+</main>
