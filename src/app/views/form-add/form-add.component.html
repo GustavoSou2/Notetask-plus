@@ -1,0 +1,23 @@
+<Header></Header>
+<form [formGroup]="f" (ngSubmit)="onSubmit()">
+    <div class="form-container-title">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-content-item item-name" id="name" placeholder="Nome" required>
+    </div>
+    <div class="form-container-title">
+        <label for="description">Descrição</label>
+        <input type="text" class="form-content-item item-description" id="description" placeholder="Descrição" required>
+    </div>
+    <div class="form-container-title">
+        <label for="note">Nota</label>
+        <input type="text" class="form-content-item item-note" id="note" placeholder="Anotação" require>
+    </div>
+
+    <div class="form-container-title">
+        <select name="selector-categ" id="categ" class="form-content-item item-selector-categ">
+            <option value="1">Urgente</option>
+            <option value="2">Importante</option>
+            <option value="3">Relativo</option>
+        </select>
+    </div>
+</form>

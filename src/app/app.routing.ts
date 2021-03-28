@@ -1,3 +1,4 @@
+import { FormAddComponent } from './views/form-add/form-add.component';
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -12,6 +13,10 @@ const APP_ROUTES: Routes = [
     {
         path: 'home',
         component: MainScreenComponent
+    }, 
+    {
+        path: 'form',
+        component: FormAddComponent
     }
 
 ];

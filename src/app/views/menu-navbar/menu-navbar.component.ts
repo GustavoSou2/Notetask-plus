@@ -19,7 +19,7 @@ import { Component, OnInit } from '@angular/core';
       display: flex;
       justify-content: center;
       align-items: center; 
-      background-color: #48d848;
+      background-color: #3970ff;
     }
     #container-header {
       width: 95%;
@@ -32,6 +32,7 @@ import { Component, OnInit } from '@angular/core';
     h2 {
       font-size: 1.3rem;
       font-weight: 400;
+      color: #fff;
     }
     span {
       color: #fff;

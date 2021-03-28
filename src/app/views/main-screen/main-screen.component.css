@@ -24,10 +24,10 @@ main {
     color: #fff;
     transition: .4s ease;
     box-shadow: 0 0 .3em .05em #d8d8d8 ;
-    background-color: #48d848; 
+    background-color: #3970ff; 
 }
 #element-add-note:hover {
-    background-color: rgb(69, 172, 69); 
+    background-color: #3907ff; 
 }
 
 /* Field search */
@@ -54,6 +54,7 @@ main {
     height: auto;
     min-height: 80vh;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     padding: 25px 0;
     background-color: #fff;
@@ -62,7 +63,7 @@ main {
     width: 90%;
     height: 55px;
     display: flex;
-    margin: 0 auto;
+    margin: 0 auto 10px;
 }
 .title-note {
     width: 25%;
@@ -88,9 +89,33 @@ main {
     width: 25%;
     height: 100%;
     display: flex;
+    justify-content: space-around;
     align-items: center;
 }
 .eyes-icon {
     width: 24px;
     height: auto;
+}
+.status-categ-post {
+    width: 120px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.case-color-status {
+    width: 44px;
+    height: 24px;
+    display: block;
+    border-radius: 12px;
+    
+}
+.red {
+    background-color: rgb(248, 68, 68);
+}
+.yellow {
+    background-color: rgb(250, 217, 72);
+}
+.green {
+    background-color: #48d848;
 }
