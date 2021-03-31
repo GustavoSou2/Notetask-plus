@@ -1,7 +1,8 @@
-import { FormAddComponent } from './views/form-add/form-add.component';
+
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { FormAddComponent } from './views/form-add/form-add.component';
  import { MainScreenComponent } from './views/main-screen/main-screen.component';
 
 

@@ -1,10 +1,11 @@
 import { routing } from './app.routing';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { MenuNavbarComponent } from './views/menu-navbar/menu-navbar.component';
 import { MainScreenComponent } from './views/main-screen/main-screen.component';

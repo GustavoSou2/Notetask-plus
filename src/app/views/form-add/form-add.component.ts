@@ -1,5 +1,6 @@
+import { NotesService } from './../../service/notes.service';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-add',
@@ -29,7 +30,7 @@ import { FormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms'
           </select>
       </div>
 
-      <input type="submit" >
+      <input type="submit" [disabled]="!form">
   </form>
   </main>
   `,
@@ -92,12 +93,14 @@ import { FormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms'
 export class FormAddComponent implements OnInit {
 
   form!: FormGroup;
+  notes: Array<any> = new Array
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
     ) { }
 
   ngOnInit(): void {
+  
 
     this.form = this.formBuilder.group({
       title: ['', Validators.required],
@@ -105,10 +108,12 @@ export class FormAddComponent implements OnInit {
       note: ['', Validators.required],
       categ: ['', Validators.required],
     })
-  }
+  } 
 
+ 
   onSubmit() {
     console.log(this.form.value)
+
   }
 
 }
