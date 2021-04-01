@@ -1,10 +1,10 @@
-import { routing } from './app.routing';
 import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+
+import { HttpClientModule } from '@angular/common/http';
+import { routing } from './app.routing';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
-import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { MenuNavbarComponent } from './views/menu-navbar/menu-navbar.component';
@@ -22,10 +22,12 @@ import { FormAddComponent } from './views/form-add/form-add.component';
     BrowserModule,
     AppRoutingModule,
     routing, 
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    HttpClientModule
+    ],
   exports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

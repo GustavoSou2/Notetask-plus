@@ -5,30 +5,40 @@ const app = express()
 const router = express.Router()
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const multipart = require('connect-multiparty')
 
 /* Conneciton on data base */
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 const corsOptions = {
     origin: '*',
-    optionsSuccessStatus: 200
+    optionsSuccessStatus: 200,
+    
 }
-
 app.use(cors(corsOptions))
 
 
 /* Rotas */
+app.get('/', (req, res) => {
+    res.send("Bem vindo a Rest API")
+})
+
 app.get('/notes', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*")
     conn.execute(
         'SELECT * FROM notes',
         (err, rows, fields) => {
-            res.send(rows)
+            res.send({
+                Res: rows
+            })
+            err => {
+                console.log({
+                    mensage: "Não foi possível carregar os dados",
+                    erro: err
+                })
+            }
         })
 })
-
-
 
 app.get('/add-notes', (req, res) => {
 

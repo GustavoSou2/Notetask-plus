@@ -23,7 +23,10 @@ const conn = mysql.createConnection({
 
 conn.connect( (err) => {
     if(err) {
-        return console.log('Erro ao conectar com o banco de dados!')
+        return console.log({
+            Mensage: 'Não foi possível conectar com o banco de dados',
+            Erro: `Erro: ${err}`
+        })
     }
     else {
         return console.log('Conexão realizada com sucesso!')
