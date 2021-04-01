@@ -30,7 +30,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
           </select>
       </div>
 
-      <input type="submit" [disabled]="!form">
+      <div id="form-button-container">
+        <input type="submit" [disabled]="form.invalid">
+        <a routerLink="/" id="button-come-back">Voltar</a>
+      </div>
   </form>
   </main>
   `,
@@ -76,6 +79,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     display: block;
     margin:10px 0;
   }
+  #form-button-container {
+    width: 260px;
+    height: auto;
+    display: flex; 
+    justify-content: space-between;
+  }
   input[type="submit"] {
     width: 120px;
     height: 40px;
@@ -85,6 +94,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     color: #fff;
     cursor: pointer;
   }
+  #button-come-back {
+    width: max-content;
+    height: max-content;
+    background-color: #48d848;
+    transition: .4s ease;
+    border-radius: 5px;
+    padding: 10px 35px;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  #button-come-back:hover,
   input[type="submit"]:hover {
     background-color: #3907ff;
   }
@@ -93,14 +114,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class FormAddComponent implements OnInit {
 
   form!: FormGroup;
-  notes: Array<any> = new Array
+  note: any; 
+
 
   constructor(
     private formBuilder: FormBuilder,
-    ) { }
+    private services: NotesService
+  ) { }
 
   ngOnInit(): void {
-  
+    this.note = {}
 
     this.form = this.formBuilder.group({
       title: ['', Validators.required],
@@ -110,10 +133,18 @@ export class FormAddComponent implements OnInit {
     })
   } 
 
- 
-  onSubmit() {
-    console.log(this.form.value)
+  createNote() {
+    this.services.sendNotes(this.form.value)
+    .subscribe(() => {
+      window.location.href = "/"
+    })
+    this.form.reset()
+  }
 
+  
+  
+  onSubmit() {
+    this.createNote()
   }
 
 }

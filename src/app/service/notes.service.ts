@@ -11,11 +11,11 @@ export class NotesService {
   constructor(private http: HttpClient) { }
   
   listNotes(): Observable<any> {
-    return this.http.get(`http://localhost:8081/notes`)
+    return this.http.get(`${environment.apiURL}notes`)
   }
   
-  sendNotes(notes: FormData): Observable<any>  {
-    return this.http.post("http://localhost:8081/notes", notes)
+  sendNotes(note: any): Observable<any>  {
+    return this.http.post(`${environment.apiURL}notes`, note)
   }
 
 }

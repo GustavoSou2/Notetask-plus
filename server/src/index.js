@@ -28,42 +28,41 @@ app.get('/notes', (req, res) => {
     conn.execute(
         'SELECT * FROM notes',
         (err, rows, fields) => {
-            res.send({
-                Res: rows
-            })
-            err => {
+            res.send(rows)
+            if (err)  {
                 console.log({
                     mensage: "Não foi possível carregar os dados",
                     erro: err
                 })
             }
+                
         })
 })
 
-app.get('/add-notes', (req, res) => {
-
-    var title = "Testando"
-    var description = "Testando o mysql2"
-    var text = "Enxendo o saco"
+app.post('/notes', (req, res) => {
+    req.header("Access-Control-Allow-Origin", "*")
+    const title = req.body.title
+    const description = req.body.description
+    const note = req.body.note
+    const categ = req.body.categ
 
     conn.execute(
-        `INSERT INTO notes(titleNotes, descriptionNotes, noteNotes) VALUE (?,?,?)`,
-        [title , description , text],
+        `INSERT INTO notes(title, description, note, categ) VALUE (?,?,?,?)`,
+        [title, description , note, categ],
         (err, rows, fields) => {
             if (err) {
                 console.log({ 
                     mensage: "Não foi possível enviar essa nota", 
                     erro: err
                 })
+            }
+            else {
+                console.log("Nota adcionada com sucesso!")
             }    
             res.json(rows)
         }
-    )
-
-
+    )  
 })
-
-
 
 
 app.listen(8081, () => {

@@ -16,20 +16,21 @@ import { Component, OnInit } from '@angular/core';
           </label>
       </div>
       <section id="container-notes">
-          <div class="case-note" *ngFor="let post of notes">
-              <span class="title-note"> {{ post.title }} </span>
+          <div class="case-note" *ngFor="let note of notes">
+              <span class="title-note"> {{ note.title }} </span>
               <div class="container-description ">
                   <span class="description-note">
-                      {{ post.description }}...
+                      {{ note.description }}...
                   </span>
               </div>
               <div class="container-button">
                   <img [src]="'../../../assets/svg/eye-open.svg'" alt="" class="eyes-icon">
                   <span class="status-categ-post">
                       status
-                      <i class="case-color-status red" *ngIf="post.categ == 1"></i>
-                      <i class="case-color-status yellow" *ngIf="post.categ == 2"></i>
-                      <i class="case-color-status green" *ngIf="post.categ == 3"></i>
+                      <i class="case-color-status red" *ngIf="note.categ == 1"></i>
+                      <i class="case-color-status yellow" *ngIf="note.categ == 2"></i>
+                      <i class="case-color-status green" *ngIf="note.categ == 3"></i>
+
                   </span>
               </div>
           </div>
@@ -41,12 +42,15 @@ export class MainScreenComponent implements OnInit {
     
   notes!: Array<any>
 
-
   constructor(private services: NotesService) { }
 
   ngOnInit(): void {
           this.services.listNotes()
-              .subscribe(result => console.log(result))
+              .subscribe(result => {
+                 this.notes = result
+                  console.log(result)
+                  
+              })
   }
 
   
